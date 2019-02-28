@@ -1,0 +1,550 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage[version=3]{mhchem}
+\usepackage[journal=jacs]{chemstyle}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{xcolor}
+\usepackage[stable]{footmisc}
+\usepackage[section]{placeins}
+\usepackage{listings}
+\usepackage{siunitx}
+\usepackage{tabularx}
+\sisetup{mode=text, output-decimal-marker = {,}, per-mode = symbol, qualifier-mode = phrase, qualifier-phrase = { de }, list-units = brackets, range-units = brackets, range-phrase = --}
+\DeclareSIUnit[number-unit-product = \;] \atmosphere{atm}
+\DeclareSIUnit[number-unit-product = \;] \pound{lb}
+\DeclareSIUnit[number-unit-product = \;] \inch{"}
+\DeclareSIUnit[number-unit-product = \;] \foot{ft}
+\DeclareSIUnit[number-unit-product = \;] \yard{yd}
+\DeclareSIUnit[number-unit-product = \;] \mile{mi}
+\DeclareSIUnit[number-unit-product = \;] \pint{pt}
+\DeclareSIUnit[number-unit-product = \;] \quart{qt}
+\DeclareSIUnit[number-unit-product = \;] \flounce{fl-oz}
+\DeclareSIUnit[number-unit-product = \;] \ounce{oz}
+\DeclareSIUnit[number-unit-product = \;] \degreeFahrenheit{\SIUnitSymbolDegree F}
+\DeclareSIUnit[number-unit-product = \;] \degreeRankine{\SIUnitSymbolDegree R}
+\DeclareSIUnit[number-unit-product = \;] \usgallon{galón}
+\DeclareSIUnit[number-unit-product = \;] \uma{uma}
+\DeclareSIUnit[number-unit-product = \;] \ppm{ppm}
+\DeclareSIUnit[number-unit-product = \;] \eqg{eq-g}
+\DeclareSIUnit[number-unit-product = \;] \normal{\eqg\per\liter\of{solución}}
+\DeclareSIUnit[number-unit-product = \;] \molal{\mole\per\kilo\gram\of{solvente}}
+\usepackage{cancel}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{fancyhdr}
+\usepackage[left=4cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\titleformat*{\section}{\bfseries\large}
+\titleformat*{\subsection}{\bfseries\normalsize}
+\usepackage{float}
+\floatstyle{plaintop}
+\newfloat{anexo}{thp}{anx}
+\floatname{anexo}{Anexo}
+\restylefloat{anexo}
+\restylefloat{figure}
+\usepackage[margin=10pt,labelfont=bf]{caption}
+\usepackage{todonotes}
+\usepackage[colorlinks=true, 
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = black,
+            anchorcolor = blue]{hyperref}
+            
+            
+\begin{document}
+\renewcommand{\labelitemi}{$\checkmark$}
+
+\renewcommand{\CancelColor}{\color{red}}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash}m{#1}}
+
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash}m{#1}}
+
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash}m{#1}}
+
+\begin{center}
+	\textbf{\LARGE{Package ``DataDriven''}}\\
+	\vspace{7mm}
+	\textbf{Eduarda Chagas, Alejandro Frery}\\ 
+	\vspace{4mm}
+	\textbf{LaCCAN - UFAL}\\
+\end{center}
+
+\vspace{7mm}
+
+\textbf{Version}: 0.0.0.9000\\
+
+\textbf{Title}: Bandt and pompe symbolization dynamics for time series with tied values: a data-driven approach\\
+
+\textbf{Description}: An implementation of a new data-driven imputation to treat time series with ties values present in the method introduced by Bandt and Pompe (Bandt and Pompe (2002) <DOI: 10.1103 / PhysRevLett.88.174102>).\\
+
+\textbf{Imports}: combinat, gtools, stats\\
+
+\textbf{License}: GPL-3\\
+
+\textbf{Encoding}: UTF-8\\
+
+\textbf{LazyData}: true\\
+
+\textbf{RoxygenNote}: 6.0.1\\
+
+
+%------------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} CompleteTies & \textit{Implements complete case methodology }\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\subsection*{Description}
+
+Calculates the probability distribution using the complete case methodology, that is, using only the patterns formed without repeated elements.
+
+\vspace{0.5cm}
+
+\subsection*{Usage}
+
+\begin{lstlisting}
+   completeTies(elements, pattern)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\newpage
+
+\subsection*{Arguments}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{elements} & Sub-sets of elements of the time series with dimension d of delay t.\\
+\hspace{0.5cm} \textit{pattern} & Ordinal patterns formed from the time series with dimension d of delay t.\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\subsection*{Examples}
+
+\begin{lstlisting}
+ set.seed(1234567890, kind = "Mersenne-Twister")
+ x = runif(110000)
+ d = 3
+ del = 1
+ elem = formationPattern(x = x, dimension = d, delay = del,
+ 			option = 0)
+ pat = formationPattern(x = x, dimension = d, delay = del, 
+ 			option = 1)
+ completeTies(elements, pattern)
+\end{lstlisting}
+
+
+%------------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} dataDriven & \textit{Calculates Data-Driven Imputation of a Time Series}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\subsection*{Description}
+
+Returns the numeric vector supplied with the given decimal number.
+
+\vspace{0.5cm}
+
+\subsection*{Usage}
+
+\begin{lstlisting}
+   dataDriven(x = x, dimension = d, delay = del)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\subsection*{Arguments}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{x} & A numeric vector (e.g. a time series)\\
+\hspace{0.5cm} \textit{dimension} & Dimension size of ordinal patterns\\
+\hspace{0.5cm} \textit{delay} & Size of the delay of ordinal patterns\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\subsection*{Examples}
+
+\begin{lstlisting}
+ set.seed(1234567890, kind = "Mersenne-Twister")
+ x <- runif(110000)
+ d <- 3
+ del <- 1
+ dataDriven(x = x, dimension = d, delay = del)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+%------------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} definePatterns & \textit{Calculates all ordinal patterns with a given dimension}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\subsection*{Description}
+
+Returns the patterns with dimension d.
+
+\vspace{0.5cm}
+
+\subsection*{Usage}
+
+\begin{lstlisting}
+   definePatterns(d = d)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\subsection*{Arguments}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{d} & Dimension size of ordinal patterns\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\subsection*{Examples}
+
+\begin{lstlisting}
+ d <- 3
+ definePatterns(d = d)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\newpage
+
+%------------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} equalitiesValues & \textit{Calculates the percentage of repeated elements in a time series}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\subsection*{Description}
+
+Analyzes and calculates the percentage of how many repeated elements a time series has.
+
+\vspace{0.5cm}
+
+\subsection*{Usage}
+
+\begin{lstlisting}
+   equalitiesValues(x = x)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\subsection*{Arguments}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{x} & A numeric vector (e.g. a time series)\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\subsection*{Examples}
+
+\begin{lstlisting}
+ set.seed(1234567890, kind = "Mersenne-Twister")
+ x <- runif(110000)
+ equalitiesValues(x = x)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+%------------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} formationPattern & \textit{}\\
+\end{tabularx}
+\end{center}
+\end{table}
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\subsection*{Description}
+
+Divides the time series into subsets with a certain size and delay and calculates its ordinal patterns.
+
+\vspace{0.5cm}
+
+\subsection*{Usage}
+
+\begin{lstlisting}
+ formationPattern(serie = x, dimension = d,delay = del,
+ 			option = opt)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\subsection*{Arguments}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{serie} & A numeric vector (e.g. a time series)\\ \\
+\hspace{0.5cm} \textit{dimension} & Dimension size of ordinal patterns\\ \\
+\hspace{0.5cm} \textit{delay} & Size of the delay of ordinal patterns\\ \\
+\hspace{0.5cm} \textit{option} & Determines the data set to be returned. The parameter must be 0 for ordinal patterns formed or different from 0 to return the subsets of formed elements.\\ \\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\subsection*{Examples}
+
+\begin{lstlisting}
+ set.seed(1234567890, kind = "Mersenne-Twister")
+ x <- runif(110000)
+ d <- 3
+ del <- 1
+ opt <- 0
+ formationPattern(serie = x, dimension = d,delay = del,
+ 			option = opt)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+%------------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} myPermute & \textit{Calculates all possible combinations of a set by exchanging only a subset of elements}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\subsection*{Description}
+
+Returns a numeric array containing all possible permutations of a vector by varying only a given subset.
+
+\vspace{0.5cm}
+
+\subsection*{Usage}
+
+\begin{lstlisting}
+    mypermute(vector = x, init = i, end = e)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\subsection*{Arguments}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{vector} & A numeric vector\\
+\hspace{0.5cm} \textit{init} & Beginning of subset\\
+\hspace{0.5cm} \textit{end} & End of subset\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\subsection*{Examples}
+
+\begin{lstlisting}
+
+ x <- c(1:10)
+ i <- 2
+ e <- 6
+ mypermute(vector = x, init = i, end = e)
+   
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+%------------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} precision & \textit{Determines a precise number of a set of numbers}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\subsection*{Description}
+
+Returns the numeric vector supplied with the given decimal number.
+
+\vspace{0.5cm}
+
+\subsection*{Usage}
+
+\begin{lstlisting}
+   precision(x = x, y = y)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\newpage
+
+\subsection*{Arguments}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{x} & A numeric vector (e.g. a time series)\\
+\hspace{0.5cm} \textit{y} & Number of decimal places\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\subsection*{Examples}
+
+\begin{lstlisting}
+   
+ set.seed(1234567890, kind = "Mersenne-Twister")
+ x <- runif(110000)
+ y <- 4
+ precision(x = x, y = y)
+
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+%------------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} shannonNormalize & \textit{Calculates the normalized Shannon entropy}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\subsection*{Description}
+
+Returns the normalized Shannon entropy of a probability distribution.
+
+\vspace{0.5cm}
+
+\subsection*{Usage}
+
+\begin{lstlisting}
+   shannonNormalized(p = prob)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\subsection*{Arguments}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{p} & A numerical vector containing an ordinal pattern distribution\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\subsection*{Examples}
+
+\begin{lstlisting}
+   
+ set.seed(1234567890, kind = "Mersenne-Twister")
+ x <- runif(110000)
+ d <- 3
+ del <- 1
+ prob = dataDriven(x = x, dimension = d, delay = del)
+ shannonNormalized(p = prob)
+
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\end{document}

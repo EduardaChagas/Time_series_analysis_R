@@ -1,0 +1,149 @@
+\documentclass[tcc]{ic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{
+colorlinks = {true},
+linktocpage = {false},
+plainpages = {false},
+linkcolor = {black},
+citecolor = {Blue},
+urlcolor = {Red},
+unicode = {true},
+pdftitle = {TCC DUDA},
+pdfauthor = {Eduarda Tatiane Caetano Chagas},
+pdfsubject = {Trabalho de Conclusão de Curso},
+pdfkeywords={Teoria da Informação, Séries Temporais, linguagem de programação R},
+pdfcreator = {LaTeX2e},
+pdffitwindow = {false},
+pdfstartview = {FitH},
+pdftoolbar = {true},
+pdfpagemode = {UseOutlines},
+pdfview = {XYZ null null null}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\titulo{Teoria da Informação e Estatística Computacional no Processamento e Análise de Sinais -- Uma ferramenta para Análise de Séries Temporais}
+
+\autor{Eduarda Tatiane Caetano Chagas}{eduardachagas48@laccan.ufal.br}{}
+
+\orientador{Prof. Dr. Alejandro Cesar Frery Orgambide}{}{Instituto de Computação}{Universidade Federal de Alagoas}
+
+\examinador{Prof. Dr. Osvaldo Anibal Rosso }{}{Instituto de Física}{Universidade Federal de Alagoas}
+
+\examinadorDois{Prof. Dr. Heitor Soares Ramos Filho}{}{Instituto de Computação}{Universidade Federal de Alagoas}
+
+\dataMesAno{Agosto}{2018}
+
+\begin{document}
+
+\selectlanguage{portuguese}
+
+\capa
+
+\begin{agradecimentos}
+
+Gostaria de agradecer primeiramente a minha mãe e meus avós, por todo o sacrifício realizado, mesmo diante de dificuldades, para sempre garantir uma educação de qualidade para mim e minha irmã.
+
+Aos meus amigos, Glauber Braga, Pedro Almeida, Bruno Rafael e David Alexandre, que me apoiaram e suportaram todos as minhas crises e desabafos.
+
+Ao Prof. Dr. Alejandro Frery, que se tornou não somente meu orientador, como também a minha maior inspiração de vida, me ensinando conhecimentos que levarei para toda o sempre.
+
+À todas as meninas do Instituto de Computação, em especial as minhas amigas Vanessa Vieira, Ana Geórgia e Júlia Albuquerque, por me ensinarem que mulheres podem ser comuns neste meio da tecnologia e ainda assim permanecerem únicas.
+
+Também agradeço aos membros do Laboratório de Computação Científica e Análise Numérica (LaCCAN) da UFAL por todo conhecimento adquirido ao longo desses anos.
+
+Por fim, e não menos importante, agradeço à banca examinadora, pela leitura atenta, questionamentos e sugestões.
+
+
+\vspace{2em}
+\begin{epigraph}{Paulo Coelho, \textit{O Alquimista}}
+``… é fácil entender que sempre existe no mundo uma pessoa que espera a outra, seja no meio de um deserto, seja no meio das grandes cidades. E quando essas pessoas se cruzam e seus olhos se encontram, todo o passado e todo o futuro perdem qualquer importância; só existe aquele momento e aquela certeza incrível de que todas as coisas debaixo do sol foram escritas pela mesma Mão.''
+\end{epigraph}
+
+ \vspace{2em}
+ \begin{flushright}
+ Eduarda Chagas
+ \end{flushright}
+\end{agradecimentos}
+
+\newpage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{epigraph}{John Green, \textit{A culpa é das estrelas}}
+``Sem dor, como poderíamos reconhecer o prazer?''
+\end{epigraph}
+
+\begin{resumo}
+
+A análise dos descritores causais de uma série temporal possui uma ampla aplicabilidade em nossa rotina, conseguindo ser identificada na análise de ações bancárias, registros do comportamento da maré, índice da taxa de desemprego, temperaturas máximas e mínimas diárias de uma cidade, dentre outras incontáveis finalidades. 
+Desse modo, relatamos aqui o processo de desenvolvimento de uma plataforma de análise dos descritores causais de uma série temporal oriundos da Teoria da Informação.
+ 	A plataforma visa facilitar a análise dessas séries nos mais variados ramos da ciência. 
+ 	O sistema foi implementado na linguagem de programação \texttt R, que além de fornecer ferramentas gráficas, também possui uma grande precisão numérica, ambas características de extrema importância ao longo deste trabalho.
+
+\vspace{2em}
+\textbf{Palavras-chave}: Séries Temporais; Teoria da Informação; Linguagem \texttt R.
+
+\end{resumo}
+
+\selectlanguage{english}
+\begin{abstract}
+
+The analysis of the causal descriptors of a time series has a wide applicability in our routine, being able to be identified in the analysis of bank actions, records of the behavior of the tide, index of the unemployment rate, maximum and minimum daily temperatures of a city, among others innumerable purposes.
+Thus, we report here the process of developing a platform for analyzing the causal descriptors of a time series from the Information Theory.
+The platform aims to facilitate the analysis of these series in the most varied branches of science.
+The system was implemented in the programming language \texttt R, which besides providing graphical tools, also has a great numerical precision, both characteristics of extreme importance throughout this work.
+
+\vspace{2em}
+\textbf{Keywords}: Time Series; Information Theory; Language \texttt R;
+
+\end{abstract}
+
+\selectlanguage{portuguese}
+
+\tableofcontents
+
+\listoffigures
+\addcontentsline{toc}{table}{Lista de Figuras}
+
+\listoftables
+\addcontentsline{toc}{table}{Lista de Tabelas}
+
+\inicio
+
+\include{capitulos/introducao}
+\include{capitulos/fundamentacao}
+\include{capitulos/metodologia}
+\include{capitulos/resultados}
+\include{capitulos/conclusoes}
+
+\selectlanguage{portuguese}
+\appendix
+\include{apendices/apendiceA}
+
+% 
+\begin{raggedright}
+\bibliographystyle{plainnat}
+\renewcommand{\bibsection}{
+\chapter*{\begin{flushright}Referências bibliográficas\end{flushright}}
+\addcontentsline{toc}{chapter}{Referências bibliográficas}
+}
+\lhead{REFERÊNCIAS BIBLIOGRÁFICAS}
+\bibliography{referencias}
+\newpage\lhead{\rightmark}
+\end{raggedright}
+
+
+% \chapter*{}
+% \vfill
+% \singlespacing
+% \thispagestyle{empty}
+% \begin{center}
+% Este trabalho foi redigido em {\large\LaTeX}\ utilizando uma modifição do estilo \textsf{IC-UFAL}.
+% As referências bibliográficas foram preparadas no \textsf{JabRef} e administradas pelo {\large\BibTeX}\ com o estilo \textsf{plainnat}.
+% O texto utiliza fonte \NomeFonte em corpo de 12 pontos.
+% A numeração dos capítulos segue com a familia tipográfica \NomeFonteCap.\\ 
+% \vspace{.5cm}
+% %\includegraphics[width=.5\textwidth]{Eye_of_Horus_bw}
+% \end{center}
+
+\end{document}

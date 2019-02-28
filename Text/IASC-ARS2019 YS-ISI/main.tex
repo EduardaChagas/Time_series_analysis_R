@@ -1,0 +1,38 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage[journal=jacs]{chemstyle}
+\usepackage[section]{placeins}
+\usepackage[left=3cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{titlesec}
+\titleformat*{\section}{\bfseries\large}
+\titleformat*{\subsection}{\bfseries\normalsize}
+
+\begin{document}
+
+\begin{center}
+	\textbf{\LARGE{Non-parametric time series analysis using Information Theory}}
+	
+	\vspace{7mm}
+	\large{Eduarda Tatiane Caetano Chagas}
+	
+	\vspace{4mm}
+	\textit{\large{Federal University of Minas Gerais}}
+	
+	\vspace{4mm}
+	\small{eduardachagas48@laccan.ufal.br}
+\end{center}
+
+\vspace{7mm}
+
+\section*{\centering Abstract}
+
+The analysis of time series is done classically in the time domain or in some transformed domain (Fourier, Wavelet, etc.). Nonparametric techniques have recently appeared, among them, the analysis of causal descriptors, which have the advantages of low sensitivity to data disturbances and the ability to reveal important properties of the dynamics underlying the process.
+The analysis of the causal descriptors of a time series has wide applicability, for example, in the analysis of the stock market, the tide register, the unemployment rate indexes, the maximum and minimum daily temperatures of a city, among many other purposes.
+Therefore, we have developed a platform for the analysis of non-parametric time series with causal descriptors of time series using Information Theory. With it, the user has a set of techniques to perform interactive and exploratory data analysis in an efficient manner and with a minimum period of learning.
+The implementation was done in the R programming language that besides providing graphical tools, also has a great numerical precision, both characteristics of extreme importance throughout this work. We chose Shiny for the GUI. We're also moving critical routines to C to gain speed.
+Another topic analyzed is the imputation of missing patterns caused by repeated time series data.
+Zunino et al. (2017) have shown that the manipulation of repeated values can have consequences in estimating the probability of ordinal distribution patterns, affecting the results of the analyzes, as it would introduce non-negligible temporal correlations that could lead to erroneous conclusions about the dynamic nature. of the system.
+In this way, we compare the different algorithms of imputation of repeated data, analyzing and modeling the behavior of these probabilities when applying descriptors of information theory.
+
+\end{document}

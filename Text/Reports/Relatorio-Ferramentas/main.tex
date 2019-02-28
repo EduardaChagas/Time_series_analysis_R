@@ -1,0 +1,129 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage[version=3]{mhchem}
+\usepackage[journal=jacs]{chemstyle}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{xcolor}
+\usepackage[stable]{footmisc}
+\usepackage[section]{placeins}
+\usepackage{listings}
+\usepackage{tabularx}
+\usepackage{siunitx}
+\sisetup{mode=text, output-decimal-marker = {,}, per-mode = symbol, qualifier-mode = phrase, qualifier-phrase = { de }, list-units = brackets, range-units = brackets, range-phrase = --}
+\DeclareSIUnit[number-unit-product = \;] \atmosphere{atm}
+\DeclareSIUnit[number-unit-product = \;] \pound{lb}
+\DeclareSIUnit[number-unit-product = \;] \inch{"}
+\DeclareSIUnit[number-unit-product = \;] \foot{ft}
+\DeclareSIUnit[number-unit-product = \;] \yard{yd}
+\DeclareSIUnit[number-unit-product = \;] \mile{mi}
+\DeclareSIUnit[number-unit-product = \;] \pint{pt}
+\DeclareSIUnit[number-unit-product = \;] \quart{qt}
+\DeclareSIUnit[number-unit-product = \;] \flounce{fl-oz}
+\DeclareSIUnit[number-unit-product = \;] \ounce{oz}
+\DeclareSIUnit[number-unit-product = \;] \degreeFahrenheit{\SIUnitSymbolDegree F}
+\DeclareSIUnit[number-unit-product = \;] \degreeRankine{\SIUnitSymbolDegree R}
+\DeclareSIUnit[number-unit-product = \;] \usgallon{galón}
+\DeclareSIUnit[number-unit-product = \;] \uma{uma}
+\DeclareSIUnit[number-unit-product = \;] \ppm{ppm}
+\DeclareSIUnit[number-unit-product = \;] \eqg{eq-g}
+\DeclareSIUnit[number-unit-product = \;] \normal{\eqg\per\liter\of{solución}}
+\DeclareSIUnit[number-unit-product = \;] \molal{\mole\per\kilo\gram\of{solvente}}
+\usepackage{cancel}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{fancyhdr}
+\usepackage[left=3cm,right=2cm,top=3cm,bottom=2cm]{geometry}
+%\usepackage[backend=bibtex,style=chem-acs,biblabel=dot]{biblatex}
+%\addbibresource{references.bib}
+
+\usepackage{titlesec}
+\usepackage{enumitem}
+\titleformat*{\section}{\bfseries\large}
+\titleformat*{\subsection}{\bfseries\normalsize}
+\usepackage{float}
+\floatstyle{plaintop}
+\newfloat{anexo}{thp}{anx}
+\floatname{anexo}{Anexo}
+\restylefloat{anexo}
+\restylefloat{figure}
+
+\usepackage[margin=10pt,labelfont=bf]{caption}
+\usepackage{todonotes}
+%\usepackage[colorlinks=true,linkcolor = blue,urlcolor  = blue,            citecolor = black,anchorcolor = blue]{hyperref}
+\usepackage{hyperref}
+
+\begin{document}
+\renewcommand{\labelitemi}{$\checkmark$}
+
+\renewcommand{\CancelColor}{\color{red}}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash}m{#1}}
+
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash}m{#1}}
+
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash}m{#1}}
+
+\begin{center}
+	\textbf{\LARGE{Relatório das ferramentas apresentadas aos novos colaboradores}}\\
+	\vspace{7mm}
+	\textbf{\large{LaCCAN - Laboratório de computação científica e análise numérica}}\\ 
+	\vspace{4mm}
+	\textbf{\large{Alunos:} Eduarda Chagas, John Omena e Marcos Gleysson }\\
+	\vspace{4mm}
+	\textbf{\large{Orientador: Alejandro Frery}}\\
+\end{center}
+
+\vspace{7mm}
+
+\section{Introdução}
+ 
+Durante este período em que tivemos que nos planejar sobre o que apresentar aos novos colaboradores, fizemos uma votação para encontrar o melhor horário para a reunião e, a partir daí, organizamos apresentações para três encontros ao longo dessas semanas. 
+
+O primeiro deles foi realizado no dia 11/04 onde fomos separados em dois grupos: 
+
+\begin{enumerate}
+\item Grupo 1: Eduarda, Milena e Demétrios;
+\item Grupo 2: Marcos, John e Danilo.
+\end{enumerate}
+
+Foi acertado que para o Grupo 1, Eduarda iria apresentar e explicar suas experiências e conhecimentos adquiridos para Milena e Danilo. Por outro lado, para o Grupo 2, ficou acertado que John e Marcos iriam apresentar para Danilo o que ambos haviam feito e disseminar resumidamente os conhecimentos adquiridos até então.
+
+Neste relatório, focaremos em relatar o que aconteceu no segundo encontro realizado no dia 16/04, onde os bolsistas se propuseram a apresentar algumas das ferramentas importantes e muito utilizadas ao longo da pesquisa: \texttt Latex, o pacote \texttt ggplot2 e \texttt Rmarkdown. 
+
+Além disso foram mostradas (parte do john)...
+
+
+\section{Ferramentas apresentadas}
+ 
+Primeiramente, foi apresentado pela bolsista Eduarda a ferramenta \texttt Overleaf e as suas funcionalidades. Assim como tal ferramenta, também foi dado um mini workshop sobre \texttt Latex e \texttt BibTex onde foi mostrado de os seguintes pontos:
+
+\begin{itemize}
+\item Criação de documentos Latex e BibTex;
+\item Diferentes estrutras de documentos;
+\item Adição de imagens e tabelas;
+\item Comandos de edição de texto;
+\item Comandos para escrita matemática;
+\item Citações e referências.
+\end{itemize}
+
+Acredita-se que após a finalização de tal apresentação os nossos colaboradores já se encontram aptos a desenvolver relatórios e artigos utilizando as ferramentas citadas.
+
+Depois, Marcos apresentou o \texttt ggplot2. Foi feita uma apresentação rápida para introduzir o tema e provocar a curiosidade dos voluntários, onde foram apresentados conteúdos retirados do site oficial do \texttt ggplot2 ~\cite{ggplot}
+e de outro site muito bom  ~\cite{ggplot2} onde foram retirados alguns exemplos práticos também muito bons. Essa apresentação foi disponibilizada a todos os voluntários ao fim da apresentação.
+
+Foi apresentada uma introdução ao tema e explicadas as duas funções principais do \texttt ggplot2 (\texttt ggplot e \texttt qplot) juntamente com suas finalidades. A partir daí, iniciou-se a parte prática onde foram feitos juntamente com os voluntários a instalação do pacote no \texttt RStudio e a implementação de diversos gráficos, desde os mais simples como de funções conhecidas ($y = x^{2}$) até a implementação de gráficos mais rebuscados (histogramas, gráficos de barras, entre outros) utilizando datasets hipotéticos criados. Foram mostrados também gráficos produzidos na pesquisa: gráficos de densidade da \texttt GI0, histogramas de geração de variáveis \texttt GI0 juntamente com as densidades desejadas sobrepostas e os gráficos de barras e de caixa elaborados para analisar os tempos de execução de ambas as técnicas de geração implemementadas (utilizando razão de variáveis Gama e utilizando o Método da Transformada Inversa).
+
+A intenção para essa apresentação não foi apresentar todas as funções existentes no \texttt ggplot2 até porque seria impossível, mas sim, apresentar uma introdução a algumas funcões desse pacote, evidenciando sempre a elegância dos gráficos criados e a facilidade/praticidade em criar e manipular gráficos utilizando \texttt ggplot2. Procurou-se despertar a curiosidade dos voluntários e os incentivá-los a pesquisar pelo pacote sempre que for necessário criar gráficos ao decorrer de seus projetos. 
+
+\section{Conclusões}
+
+Como conclusão desse segundo encontro onde foram apresentadas algumas das ferramentas importantes utilizadas pelos bolsistas, podemos citar que os voluntários se mostraram bem atentos e interessados durante todas as apresentações feitas. Ficamos bastante satisfeitos com os resultados obtidos e com a atenção dada por eles do início ao fim, onde surgiram dúvidas e houve bastante interação dos mesmos com nós bolsistas, contribuindo para estabelecimento de um ambiente ideal para a transmissão do conhecimento planejado para ser passado no encontro.
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\end{document}

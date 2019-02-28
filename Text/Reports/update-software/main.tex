@@ -1,0 +1,303 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage[version=3]{mhchem}
+\usepackage[journal=jacs]{chemstyle}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{xcolor}
+\usepackage[stable]{footmisc}
+\usepackage[section]{placeins}
+\usepackage{listings}
+%Paquete para el manejo de las unidades
+\usepackage{siunitx}
+\sisetup{mode=text, output-decimal-marker = {,}, per-mode = symbol, qualifier-mode = phrase, qualifier-phrase = { de }, list-units = brackets, range-units = brackets, range-phrase = --}
+\DeclareSIUnit[number-unit-product = \;] \atmosphere{atm}
+\DeclareSIUnit[number-unit-product = \;] \pound{lb}
+\DeclareSIUnit[number-unit-product = \;] \inch{"}
+\DeclareSIUnit[number-unit-product = \;] \foot{ft}
+\DeclareSIUnit[number-unit-product = \;] \yard{yd}
+\DeclareSIUnit[number-unit-product = \;] \mile{mi}
+\DeclareSIUnit[number-unit-product = \;] \pint{pt}
+\DeclareSIUnit[number-unit-product = \;] \quart{qt}
+\DeclareSIUnit[number-unit-product = \;] \flounce{fl-oz}
+\DeclareSIUnit[number-unit-product = \;] \ounce{oz}
+\DeclareSIUnit[number-unit-product = \;] \degreeFahrenheit{\SIUnitSymbolDegree F}
+\DeclareSIUnit[number-unit-product = \;] \degreeRankine{\SIUnitSymbolDegree R}
+\DeclareSIUnit[number-unit-product = \;] \usgallon{galón}
+\DeclareSIUnit[number-unit-product = \;] \uma{uma}
+\DeclareSIUnit[number-unit-product = \;] \ppm{ppm}
+\DeclareSIUnit[number-unit-product = \;] \eqg{eq-g}
+\DeclareSIUnit[number-unit-product = \;] \normal{\eqg\per\liter\of{solución}}
+\DeclareSIUnit[number-unit-product = \;] \molal{\mole\per\kilo\gram\of{solvente}}
+\usepackage{cancel}
+%Paquetes necesarios para imágenes, pies de página, etc.
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{fancyhdr}
+\usepackage[left=4cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+
+%Instrucción para evitar la indentación
+%\setlength\parindent{0pt}
+%Paquete para incluir la bibliografía
+\usepackage[backend=bibtex,style=chem-acs,biblabel=dot]{biblatex}
+\addbibresource{references.bib}
+
+%Formato del título de las secciones
+
+\usepackage{titlesec}
+\usepackage{enumitem}
+\titleformat*{\section}{\bfseries\large}
+\titleformat*{\subsection}{\bfseries\normalsize}
+
+%Creación del ambiente anexos
+\usepackage{float}
+\floatstyle{plaintop}
+\newfloat{anexo}{thp}{anx}
+\floatname{anexo}{Anexo}
+\restylefloat{anexo}
+\restylefloat{figure}
+
+%Modificación del formato de los captions
+\usepackage[margin=10pt,labelfont=bf]{caption}
+
+%Paquete para incluir comentarios
+\usepackage{todonotes}
+
+%Paquete para incluir hipervínculos
+\usepackage[colorlinks=true, 
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = black,
+            anchorcolor = blue]{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%Inicio del documento%
+%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\renewcommand{\labelitemi}{$\checkmark$}
+
+\renewcommand{\CancelColor}{\color{red}}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash}m{#1}}
+
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash}m{#1}}
+
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash}m{#1}}
+
+\begin{center}
+	\textbf{\LARGE{Manual de utilização do software de análise de séries temporais}}\\
+	\vspace{7mm}
+	\textbf{\large{LaCCAN - Laboratório de computação científica e análise numérica}}\\ 
+	\vspace{4mm}
+	\textbf{\large{Aluna: Eduarda Chagas}}\\
+	\vspace{4mm}
+	\textbf{\large{Orientador: Alejandro Frery}}\\
+\end{center}
+
+\vspace{7mm}
+
+\section*{\centering Resumo}
+
+Visando relatar os últimos avanços realizados no projeto de pesquisa de implementação do software de análise de séries temporais, tal relatório informa quais funções foram desenvolvidas ao longo desta semana, destacando os métodos que foram discutidos na última reunião ocorrida.
+
+\section{Introdução}
+
+Na última reunião foram discutidos os seguintes metodologias e técnicas de análise de séries temporais:
+
+\begin{itemize}
+	\item Incorporação de informação de amplitude, através da diistribuição de probabilidade com pesos (WPE);
+    \item Entropia Mínima (PME);
+    \item A presença de valores repitidos numa dada série temporal;
+    \item A incorporação no projeto das séries temporais econômicas fornecidas pelo pacote \textit{BETS}.
+\end{itemize}
+
+
+Desse modo, iremos nas próximas seções discutir sobre tais métodos e como estes foram posteriormente implementados. Assim como também será mostrado as novas modificações realizadas no conjunto de códigos que compõe o projeto.
+
+\section{\textit{Weighted permutation entropy}}
+
+Com o objetivo de incorporar à análise das distribuições de probabiliadade de séries temporais a amplitude de informação surgiu a técnica da \textit{entropia de permutação com pesos}, onde cada dado padrão formado pela série seria associado a um determinado peso.
+
+Desse modo, de acordo com tal abordagem se faz possível diminuir problemas relacionados ao alto ruído e baixo sinal incorporado aos dados, uma vez que os padrões que possuem estas características adquirem pesos menores e consequentemente não afetam muito a distribuição.
+
+Os pesos utilizados serão então calculados pela seguinte fórmula:
+
+$$ W(N) = \frac{1}{D} \sum(x_{j+k-1} - \overline{x_{j}^D})^2 \indent (I)$$
+
+Onde a \textit{D} representa a dimensão e $\overline{x_{j}^D}$ denota a média aritmética dos valores presentes no padrão.
+
+Assim temos abaixo a probabilidade de distribuição:
+
+$$ p(\pi_{i}^{m,t})=\frac{ || \{\ j: j \leq N, type (X_{j}^{m,t}) = \pi_{i}^{m,t} \} || }{N} \indent (II)$$
+
+\subsection{Função \textit{Weigths}}
+
+Através desta função é possível calcular o peso dos grupos formados a partir de uma dada série fornecida. Tal funcionalidade será então utilizada no processo de calcular o \textit{WPE}, uma vez que esta trata-se de umas de suas etapas.\\
+
+\textbf{Input :}Série temporal, dimensão e delay.
+
+\textbf{Output :}Os valores referentes ao peso de cada grupo com a dimensão fornecida, formado através dos elementos da série temporal dada como parâmetro.\\
+
+\begin{lstlisting}
+weigths<-function(series,dimension,delay){
+  groups<-formationPattern(series,dimension,delay,2)
+  n_elements<-formationPattern(series,dimension,delay,1)
+  weigth =  rep(0,n_elements)
+  for(i in 1:n_elements){
+    m = rep(mean(groups[i,]),dimension)
+    weigth[i] = (sum((groups[i,]-m)^2))*(1/dimension)
+  }
+  weigth
+}
+\end{lstlisting}
+
+\subsection{Função \textit{WPE}}
+
+Esta será a função que irá calcular de fato a distribuição de probabilidade, auxiliada pela funcionalidade descrita anteriormente esta apenas retrata o processo descrito na equação do processo.\\
+
+\textbf{Input :}Série temporal a ser avaliada, dimensão e delay.
+
+\textbf{Output :}A distribuição de probabilidade dos padrões de Bandt e Pompe utilizando pesos.\\
+
+\begin{lstlisting}
+WPE <-function(series,dimension,delay){
+  weigth<-weigths(serie,dimension,delay)
+  simbols<-formationPattern(series,dimension,delay,0)
+  n_elements<-dim(simbols)[1]
+  patterns<-definePatterns(dimension)
+  MyFrequency = MyWeigth = rep(0,factorial(dimension))
+  for(i in 1:n_elements){
+    for(j in 1:factorial(dimension)){ 
+      if(all(simbols[i,] == patterns[j,])){
+        MyFrequency[j] = MyFrequency[j] + 1
+        MyWeigth[j] = MyWeigth[j] + weigth[i]
+        break
+      }
+    }
+  }
+  MyWeigth = MyWeigth/MyFrequency
+  MyWeigth[is.nan(MyWeigth)] = 0
+  pbw = (MyFrequency/n_elements)*MyWeigth
+  pbw
+}
+\end{lstlisting}
+
+\section{\textit{Min-entropy}}
+
+Sabendo a enorme importância da análise de correlações entre os elementos de uma determinada série temporal, foi então desenvolvido desenvolvido um novo quantificador, a entropia mínima. Sendo o resultado da entropia de \textit{Rényi} quando a variável \textit{q} tende ao infinito, temos assim que: 
+
+$$ R_{\infty}[P] = - log(max_{i = 1,..D!}p(\pi_{i})) \indent (III) $$
+
+
+\subsection{Função \textit{PMEUnidimensional}}
+
+Tal função realiza o procedimento utilizando dado unidimensionais, isto é, a partir de uma dada série temporal fornecida pelo usuário.\\
+
+\textbf{Input :}Série temporal, dimensão e delay.
+
+\textbf{Output :}Entropia mínima calculada a partir dos dados fornecidos na entrada.\\
+
+\begin{lstlisting}
+PMEUnidimensional<-function(series,dimension,delay){
+  probability <- distribution(series,dimension,delay)
+  pme = (-1)*log(max(probability))
+  pme
+}
+\end{lstlisting}
+
+\subsubsection{Função \textit{PMEBidimensional}}
+
+Enquanto a primeira função é capaz de aplicar tal funcionalidade com dados unidimensionais, essa por sua vez aplica esta a dados bidimensionais, ou seja, a texturas, sendo necessário apenas informar em conjunto as \textit{dimensões} e os \textit{delays} dos seus padrões.\\
+
+\textbf{Input :} Imagem a ser analisada, dimensões X e Y, dealys X e Y.
+
+\textbf{Output :} Entropia mínima.\\
+
+\begin{lstlisting}
+PMEBidimensional<-function(image,dimX,dimY,delX,delY){
+  probability <- distributionImage(image,dimX,dimY,delX,delY)
+  pme = (-1)*log(max(probability))
+  pme
+}
+\end{lstlisting}
+
+\section{Percentual de valores repetidos ao longo da série}
+
+\subsection{Função \textit{equalitiesValues}}
+
+Sabendo dos impactos provocados pela grande proporção de dados semelhantes ao longo de uma série temporal pode provocar, pode se fazer necessária a análise de tais números antes de realizar uma maior análise exploratória de tais dados.\\ 
+
+Deste modo foi implementada a função abaixo, com o objetivo de informar ao usuário do software tal percentual, para que assim este possua tal informação ao analisar posteriormente sua série temporal.\\
+
+\textbf{Input: } Série temporal.
+
+\textbf{Output: } Percentual de valores repetidos em comparação com o número total de elementos da série fornecida.\\
+
+\begin{lstlisting}
+equalitiesValues<-function(series){
+  aux = duplicated(series)
+  answer = length(a[a == TRUE])
+  answer = (answer*100)/length(series)
+  cat("Percent of repeated values: ",answer,"\n")
+}
+\end{lstlisting}
+
+\section{Séries econômicas do pacote \textit{BETS}}
+
+Oferecendo total acesso a um grande número de séries temporais produzidas no ramo da economia brasileira, o pacote \textit{BETS} em \textit{R}, disponibiliza assim  um banco de dados para o nosso sistema, podendo desse modo fornercer ao usuário mais uma funcionalidade.\\
+
+\subsection{Função \textit{SearchTimeSeries}}
+
+Por meio desta  função é possível adquirir uma lista com as séries temporais disponíveis no banco de dados, uma vez que foi fornecido ao software as suas especificidades, como local de origem e periodicidade.\\
+
+\textbf{Input: } Escolha do local de origem da série temporal, de acordo com as opções disponíveis e a periodicidade em que os dados forma dispostos.
+
+\textbf{Output: } Exibição de uma tabela mostrando as opções oferecidas pelo pacote.\\ 
+
+\begin{lstlisting}
+
+SearchTimeSeries<-function(orignPlace,per){
+  aux = BETS.search(src = orignPlace,periodicity = per)
+  print(aux)
+}
+
+\end{lstlisting}
+
+\subsection{Função \textit{GetTimeSeries}}
+
+Uma vez escolhida a série desejada por meio da lista oferecida pela função anterior, através do código da mesma a série é então carregada no sistema, estando pronta para análise.\\
+
+\textbf{Input: } Código da série escolhida.
+
+\textbf{Output: } Série temporal solicitada.\\ 
+
+\begin{lstlisting}
+GetTimeSeries<-function(myCode){
+  ts = BETS.get(code = myCode)
+  ts
+}
+\end{lstlisting}
+
+
+\section{Outras implementações}
+
+\subsection{Função \textit{interactiveGraph}}
+
+Ao análisar as funcionalidades presentes no pacote \textit{BETS} foi visto a presença de um gráfico interativo, onde este pode fornecer os dados de um determinado ponto que o usuário venha a  apontar. Desse modo, foi então implementada a função que se segue abaixo, para ser realizada uma análise posterior de sua inclusão ao software.\\
+
+\textbf{Input: }Série temporal a ser utilizada.
+
+\textbf{Output: } Plotagem do gráfico interativo.\\
+
+\begin{lstlisting}
+interactiveGraph-function(serie){
+  dygraph(a,main="Graphic of time series",xlab="Time",ylab="Serie")
+}
+\end{lstlisting}
+
+
+\end{document}

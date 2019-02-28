@@ -1,0 +1,133 @@
+\documentclass[12pt]{ctexart}
+\usepackage[a4paper, top=3cm, left=3cm, bottom=2cm, right=2cm]{geometry}
+\usepackage[portuguese]{babel}
+\usepackage[none]{hyphenat}
+\usepackage[math]{iwona}
+\usepackage{listings}
+\usepackage{tabularx}
+\usepackage{minted}
+\usepackage[breaklinks]{hyperref}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+
+\title{Universidade Federal de Alagoas (UFAL)\\
+Instituto de Computação (IC)}
+
+\author{PRÉ-PROJETO DE MESTRADO\\
+Eduarda Tatiane Caetano Chagas\\
+Linha de Pesquisa: Modelos Quantitativos e de Simulação \\ 
+Título: Análise Estatística de dados SAR/PolSAR}
+
+\begin{document}
+
+\begin{center}
+\hrulefill
+
+UNIVERSIDADE FEDERAL DE ALAGOAS (UFAL)\\
+INSTITUTO DE COMPUTAÇÃO (IC)\\
+PRÉ-PROJETO DE MESTRADO
+
+\hrulefill
+\end{center}
+
+
+\noindent Eduarda Tatiane Caetano Chagas\\
+Linha de Pesquisa: Modelos Quantitativos e de Simulação \\ 
+Título: Análise Estatística de dados SAR/PolSAR\\
+Tema: Estudo de dados SAR/PolSAR utilizando técnicas de análise não-paramétrica de Séries Temporais com Teoria da Informação.
+
+\section*{Justificativa}
+
+Qualquer conjunto de dados obtido sequencialmente por meio de um processo observacional ao longo de um determinado período de tempo, não necessariamente particionado em espaços temporais igualitários é chamado de séries temporais.
+
+O estudo desses dados auxilia na análise de várias propriedades de sistemas, uma vez que tais dados são o resultado da operação de um sistema causal sujeito a ruído observacional. Portanto, esse sistema, ou dinâmica, é responsável pela criação de padrões através dos quais a observação deseja-se inferir a respeito da dinâmica. 
+
+Podemos ver a aplicação da análise de séries temporais em múltiplas áreas do conhecimento científico como, por exemplo, 
+na discriminação entre fenômenos estocásticos e caóticos~\cite{DistinguishingNoiseFromChaos}, 
+na identificação de padrões de comportamento em redes veiculares~\cite{CharacterizationVehicleBehaviorInformationTheory}, 
+na classificação e verificação de assinaturas \textit{online} ~\cite{ClassificationVerificationOnlineHandwrittenSignatures},
+na análise da eficiência informacional do mercado de petróleo~\cite{oilMarket},
+na caracterização das séries temporais produzidas por eletroencefalogramas~\cite{EGGTimeSeries},
+na análise da robustez de redes~\cite{InformationTheoryPerspectiveNetworkRobustness}, e 
+na classificação de padrões de consumo de energia elétrica~\cite{CharacterizationElectricLoadInformationTheoryQuantifiers}.
+
+Tradicionalmente o estudo de séries temporais costuma ser dividido em duas linhas de estudo: nos domínios do tempo e da frequência~\cite{BrockwellDavis91}. Ambas abordagens utilizam diretamente os dados resultantes do processo observacional, logo são sensíveis a efeitos provocados por diversos tipos de contaminação. Assim, a abordagem do uso de métodos não paramétricos surgiu como uma forma de evitar que tais efeitos invalidem as análises destes dados.
+
+A Teoria da Informação surgiu como um ramo interdisciplinar, produzindo inúmeros resultados, tanto no ponto de vista teórico quanto nas aplicações, na criação de novos métodos na extração de informações de sinais, abrangendo em suas soluções conceitos presentes na Probabilidade, Estatística, e Telecomunicações. No entanto, ainda existem inúmeros problemas analíticos e de ordem computacional em aberto, surgindo diversos desafios na hora de tratá-los, formando assim uma linha de pesquisa avançada, uma vez que requerem por parte dos envolvidos um bom domínio das teorias que dão sustento às técnicas.
+
+Radares de Abertura Sintética (SAR) e SAR Polarimétrico (PolSAR) são amplamente utilizados para observação de cenas naturais. A imagem SAR consiste de uma técnica de sensoriamento remoto bem desenvolvida que utiliza processamento de sinais para sintetizar uma imagem de alta resolução espacial 2D da refletividade da superfície terrestre a partir de todos os sinais recebidos.
+Já os dispositivos polarimétricos de radar de abertura sintética (PolSAR) transmitem pulsos ortogonalmente polarizados em direção a um determinado alvo, e o eco retornado é registrado em relação a cada polarização. Em comparação a primeira técnica, o equipamento de sensoriamento remoto PolSAR nos fornece melhores meios para a captura de informações de uma cena quando comparado com sua contraparte univariada, ou seja, a tecnologia SAR \cite{polsar.book} \cite{Multidimensional.Speckle.Noise.Model}.
+
+No entanto, essas imagens são corrompidas por um ruído dependente de sinal, chamado speckle, que nos formatos mais usados de imagens SAR é não gaussiano e entra no sinal de uma maneira não aditiva, tornando a análise automática e visual uma tarefa difícil e desafiando o uso de recursos clássicos presentes na literatura. 
+
+Neste trabalho, iremos realizar o processo de retificação de imagens e aplicar técnicas de análise de séries temporais diretamente em dados SAR.
+
+\section*{Revisão de literatura}
+
+Uma vez que realizar a análise de dados PolSAR por meio de uma análise  não-paramétrica trata-se de uma abordagem inovadora, ainda não existem muitos trabalhos relacionados a tal técnica.
+
+O uso de técnicas e ferramentas da Teoria da Informação tem levado a resultados significativamente melhores do que aqueles obtidos com técnicas clássicas em diversas áreas do conhecimento. No trabalho de~\cite{Torres2014}, podemos ver uma grande contribuição no campo do processamento de imagens, onde este propõe uma técnica de filtrado que se adapta a cada ponto da imagem, observa uma janela de tamanho considerável e só emprega aquelas observações que não são muito discrepantes do valor central. Em~\cite{Bhattacharya2015}, vemos uma aplicação de distâncias estocásticas para obter uma decomposição polarimétrica otimizada.
+
+Em \cite{Complexity.Two.Dimensional} foi construído um procedimento numérico que pode ser facilmente implementado para avaliar a complexidade de dois ou mais padrões de dimensões superiores, diminuindo assim a lacuna existente das extensões dessas abordagens para dados bidimensionais ou de dimensões superiores.
+
+Em \cite{Generalized.Statistical.Complexity.of.SAR.Imagery} foi mostrado que a complexidade estatística dos dados SAR, usando a entropia de Shannon e a distância de Hellinger pode ser usada como um poderoso recurso para a análise deste tipo de dados.
+
+Entretanto, como podemos verificar em \cite{Intensity.SAR.Imagery} a análise de dados PolSar multilook é realizada por meio da distribuição complexa de Wishart, sendo então a aplicação da distribuição de Bandt \& Pompe uma proposta não tradicional na literatura.
+
+\section*{Objetivos}
+
+O objetivo principal deste projeto consiste em aplicar técnicas de análise não-paramétricas de séries temporais unidimensionais utilizando descritores causais da Teoria da Informação para realizar a  análise de imagens Sar/PolSar, que por sua vez consistem de dados multidimensionais.
+
+No desenvolvimento deste trabalho algumas questões serão respondidas, dentre elas:
+
+\begin{itemize}
+    \item Como aplicar técnicas de análise não-paramétrica de séries temporais em dados multivariados?
+\end{itemize}
+
+E como citado anteriormente, a solução destas questões trará uma inovadora abordagem na literatura.
+
+\section*{Metodologia}
+
+Um sensor PolSAR transmite um sinal polarizado linearmente e registra duas polarizações ortogonais do sinal retornado. Imagens PolSAR registram as quatro combinações possíveis do sinal de acordo com a polarização das antenas de transmissão e recepção, formando a matriz de dispersão completa S de um meio em um determinado ângulo de incidência:
+
+ \[
+   S=
+  \left[ {\begin{array}{cc}
+   S_{hh} & S_{hv}\\
+   S_{vh} & S_{vv}\\
+  \end{array} } \right]
+\]
+
+Uma vez que $S_{hv}$ e $S_{vh}$ representam o mesmo valor em nossa análise, podemos assim representar em uma matriz complexa de 1-look:
+
+ \[
+   S=
+  \left[ {\begin{array}{c}
+   S_{hh}\\
+   S_{hv}\\
+   S_{vv}\\
+  \end{array} } \right]
+\]
+
+Por meio disto, podemos assim chegar a matriz de covariância complexa multilook:
+
+
+\begin{equation}
+Z=\frac{1}{L} \sum_{i=1}^{L} SiSi^*, 
+\end{equation}
+
+
+ \[
+   Z=
+  \left[ {\begin{array}{ccc}
+   I_{hh} & S_{hh}S_{hv}^* & S_{hh}S_{vv}^*\\
+   S_{hh}^*S_{hv} & I_{hv} & S_{hv}S_{vv}^*\\
+   S_{hh}^*S_{vv} & S_{hv}^*S_{vv} & I_{vv}\\
+  \end{array} } \right]
+\]
+
+Desse modo, teremos para cada pixel de uma imagem SAR a sua matriz de covariância complexa multilook correspondente. Logo, por meio de retificação da imagem aplicaremos técnicas de análise não-paramétricas de séries temporais por meio de descritores da Teoria da Informação.
+
+\bibliographystyle{unsrt} 
+\bibliography{bibliografia.bib}
+\end{document}

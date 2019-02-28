@@ -1,0 +1,12 @@
+Package: DataDriven
+Title: Bandt and pompe symbolization dynamics for time series with tied values: a data-driven approach
+Version: 0.0.0.9000
+Authors@R: person("Eduarda", "Chagas", email = "eduardachagas48@laccan.ufal.br", role = c("aut", "cre"))
+Description: An implementation of a new data-driven imputation to treat time series with ties values present in the method introduced by Bandt and Pompe (Bandt and Pompe (2002) <DOI: 10.1103 / PhysRevLett.88.174102>).
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Imports: combinat,
+    gtools,
+    stats
