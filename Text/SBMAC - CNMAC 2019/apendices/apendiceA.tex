@@ -1,0 +1,1154 @@
+\chapter{Manual de utilização das funções desenvolvidas} \label{apendiceA}
+
+\section{Pacotes necessários}
+
+Para que seja possível utilizar plenamente as funções desenvolvidas ao longo deste projeto será necessário que os seguintes pacotes estejam instalados no ambiente \textit{RStudio}:
+
+\begin{itemize}
+\item combinat
+\item ggplot2
+\item dygraphs
+\item ggthemes
+\end{itemize}
+
+Após a instalação, o usuário pode realizar normalmente a chamadas das funções implementadas.
+
+\section{Principais funções desenvolvidas}
+
+%------------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} equalitiesValues & \textit{Percentual de dados repetidos em uma dada série temporal}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   equalitiesValues(serie)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{serie} & Um vetor numérico onde estará instânciada a série temporal que deve ser avaliada pela função.\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\newpage
+
+%------------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} removeDuplicate & \textit{Remove os dados duplicados de uma série temporal}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   removeDuplicate(serie)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{serie} & Um vetor numérico onde estará instânciada a série temporal que deve ser avaliada pela função.\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+%------------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} distribution & \textit{Distribuição de probabilidade de Bandt-Pompe}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   distribution(serie,dimension,delay)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{serie} \vspace{0.5cm}& Um vetor numérico onde estará instanciada a série temporal que deve ser avaliada pela função.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{dimension} \vspace{0.5cm}& Dimensão dos padrões ordinais.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{delay} & Delay utilizado na formação dos padrões.\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\newpage
+
+%------------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} WPE & Distribuição de probabilidade de Bandt and Pompe Weigth.\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   WPE(serie,dimension,delay)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{serie} \vspace{0.5cm}& Um vetor numérico onde estará instanciada a série temporal que deve ser avaliada pela função.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{dimension} \vspace{0.5cm}& Dimensão dos padrões ordinais.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{delay} & Delay utilizado na formação dos padrões.\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+%---------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+  \hspace{0.5cm} shannonEntropy & \textit{Entropia de Shannon de uma dada distribuição de probabilidade}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   shannonEntropy(p)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{p} & Uma distribuição de padrão ordinal.\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\newpage
+%---------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} shannonNormalized & \textit{Entropia normalizada de Shannon de uma distribuição de probabilidade}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   shannonNormalized(p)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{p} & Uma distribuição de padrão ordinal.\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+%---------------------------------------------------------------------------------------------------------------
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} tsallisEntropy & \textit{Entropia de Tsallis de uma dada distribuição de probabilidade}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   tsallisEntropy(p,q)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{p} \vspace{0.5cm}& Uma distribuição de padrão ordinal.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{q} \vspace{0.5cm}& A ordem da entropia. Permite apenas números positivos.\vspace{0.5cm}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\newpage
+%---------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} tsallisNormalized & \textit{Entropia normalizada de Tsallis de uma distribuição de probabilidade}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   tsallisNormalized(p,q)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{p} \vspace{0.5cm}& Uma distribuição de padrão ordinal.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{q} \vspace{0.5cm}&  A ordem da entropia. Permite apenas números positivos.\vspace{0.5cm}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+%---------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} renyiEntropy & \textit{Entropia de Renyi de uma distribuição de probabilidade}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   renyiEntropy(p,q)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{p} \vspace{0.5cm}& Uma distribuição de padrão ordinal.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{q} \vspace{0.5cm}& A ordem da entropia. Permite apenas números positivos.\vspace{0.5cm}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+\newpage
+
+%---------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} renyiNormalized & \textit{Entropia normalizada de Renyi de uma distribuição de probabilidade}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   renyiNormalized(p,q)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{p} \vspace{0.5cm}& Uma distribuição de padrão ordinal.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{q} \vspace{0.5cm}& A ordem da entropia. Permite apenas números positivos.\vspace{0.5cm}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+%---------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} PME & \textit{Entropia entropia de mínima permutação de uma distribuição de probabilidade}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   PME(p)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{p} & Uma distribuição de padrão ordinal.\\
+\end{tabularx}
+\end{center}
+\end{table} 
+\newpage
+%------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} euclidianDistance & \textit{Distância euclidiana de uma dada distribuição de probabilidade e a distribuição de probabilidade uniforme}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   euclidianDistance(p)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{p} & Uma distribuição de padrão ordinal.\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+%---------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} squaredDistance & \textit{Distância euclidiana quadrada de uma dada distribuição de probabilidade e a distribuição de probabilidade uniforme}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   squaredDistance(p)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{p} & Uma distribuição de padrão ordinal.\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\newpage
+
+%---------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} manhattanDistance & \textit{Distância de Manhattan de uma dada distribuição de probabilidade e a distribuição de probabilidade uniforme}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   manhattanDistance(p)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{p} & Uma distribuição de padrão ordinal.\\
+\end{tabularx}
+\end{center}
+\end{table} 
+%---------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} chebyshevDistance & \textit{Distância de Chebyshev de uma dada distribuição de probabilidade e a distribuição de probabilidade uniforme}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   chebyshevDistance(p)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{p} & Uma distribuição de padrão ordinal.\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\newpage
+
+%---------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} hellingerDistance & \textit{Distância  de Hellinger de uma dada distribuição de probabilidade e a distribuição de probabilidade uniforme}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   hellingerDistance(p)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{p} & Uma distribuição de padrão ordinal.\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+%---------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} jensenDivergence & \textit{Medida de desequilíbrio generalizado para distribuições de probabilidade com base na divergência de Jensen-Shannon}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   jensenDivergence(p)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{p} & Uma distribuição de padrão ordinal.\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\newpage
+%---------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} woottersDistance & \textit{Distância de Wootters de uma dada distribuição de probabilidade e a distribuição de probabilidade uniforme}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   woottersDistance(p)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{p} & Uma distribuição de padrão ordinal.\\
+\end{tabularx}
+\end{center}
+\end{table} 
+%---------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} kullbackDivergence & \textit{Medida de desequilíbrio generalizado para distribuições de probabilidade com base na divergência de kullback-Leibler}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   kullbackDivergence(p)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{p} & Uma distribuição de padrão ordinal.\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\newpage
+
+%---------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} bhattacharyyaDistance & \textit{Distância de Bhattacharyya de uma dada distribuição de probabilidade e a distribuição de probabilidade uniforme}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   bhattacharyyaDistance(p)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{p} & Uma distribuição de padrão ordinal.\\
+\end{tabularx}
+\end{center}
+\end{table} 
+%----------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} Ccomplexity & \textit{Complexidade estatística de uma distribuição de probabilidade}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   Ccomplexity(p)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{p} & Uma distribuição de padrão ordinal.\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\newpage
+%----------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} timeSeries & \textit{Gráfico da série temporal}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   timeSeries(serie)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{serie} & Um vetor numérico onde estará instanciada a série temporal que deve ser avaliada pela função.\\
+\end{tabularx}
+\end{center}
+\end{table} 
+%---------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} histogram & \textit{Histograma dos padrões de Bandt-Pompe de uma série temporal}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   histogram(serie,dimension,delay)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{serie} \vspace{0.5cm}& Um vetor numérico onde estará instanciada a série temporal que deve ser avaliada pela função.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{dimension} \vspace{0.5cm}& Dimensão dos padrões ordinais.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{delay} \vspace{0.5cm}& Delay utilizado na formação dos padrões.\vspace{0.5cm}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\newpage
+%---------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} patternsOnGraph & \textit{Localiza os pontos de uma série temporal pertencentes a um certo padrão ordinal}
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   patternsOnGraph(serie,dimension,delay,pattern)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{serie} \vspace{0.5cm}& Um vetor numérico onde estará instanciada a série temporal que deve ser avaliada pela função.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{dimension} \vspace{0.5cm}& Dimensão dos padrões ordinais.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{delay} \vspace{0.5cm}& Delay utilizado na formação dos padrões.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{pattern} \vspace{0.5cm}& Padrão que deverá ser analisado. Valor baseado nos padrões demonstrados no histograma.\vspace{0.5cm}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+\newpage
+%---------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} entropyPlane & \textit{Plota o gráfico da entropia de uma certa série temporal ou seus particionamentos}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   entropyPlane(serie,partitions,dimension,delay,
+   			distribution,option,q)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{serie} \vspace{0.5cm}& Um vetor numérico onde estará instanciada a série temporal que deve ser avaliada pela função.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{partitions} \vspace{0.5cm}& Quantidade de partições que a série deve ser dividida para a análise.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{dimension} \vspace{0.5cm}& Dimensão dos padrões ordinais.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{delay} \vspace{0.5cm}& Delay utilizado na formação dos padrões.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{distribution} \vspace{0.5cm}& Distribuição que deve ser utilizada. O parâmetro deverá ser 1 para a distribuição de Bandt and Pompe, caso contrário a distribuição que será aplicada será a de Bandt and Pompe weigth.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{option} \vspace{0.5cm}& Entropia que deve ser analisada. O parâmetro deve ser 1 para a entropia de shannon, 2 para a entropia de Tsallis ou 3 para a entropia de Renyi. Caso contrário, deverá ser aplicada a min entropy.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{q} \vspace{0.5cm}& (Pode não ser necessário dependendo da entropia selecionada) Ordem da entropia.\vspace{0.5cm}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\newpage
+%---------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} distancePlane & \textit{Plota o gráfico da distância estocástica de uma certa série temporal ou seus particionamentos}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   distancePlane<-function(serie,partition,dimension,delay,
+   				optionD=1,optionP=1,q=1){
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{serie} \vspace{0.5cm}& Um vetor numérico onde estará instanciada a série temporal que deve ser avaliada pela função.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{partition} \vspace{0.5cm}& Quantidade de partições que a série deve ser dividida para a análise.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{dimension} \vspace{0.5cm}& Dimensão dos padrões ordinais.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{delay} \vspace{0.5cm}& Delay utilizado na formação dos padrões.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{optionD} \vspace{0.5cm}& Distância estocástica que deve ser analisada. Devem ser usados os seguintes valores para acessar as opções disponíveis: Euclidiana (1), euclidiana quadrática (2), manhattan (3), chebyshev (4), divergência de Kullback-Leibler (5), helinger (6), divergência de Jensen Shannon (7), wootters (8) e bhattacharyya (9)\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{optionP} \vspace{0.5cm}& Distribuição que deve ser utilizada. O parâmetro deverá ser 1 para a distribuição de Bandt and Pompe, caso contrário a distribuição que será aplicada será a de Bandt and Pompe weigth.\vspace{0.5cm}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{q} \vspace{0.5cm}& (Pode não ser necessário dependendo da entropia selecionada) Ordem da entropia.\vspace{0.5cm}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\newpage
+
+%---------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} partitionMPR & \textit{Gráfico entropia complexidade de uma série temporal ou de seus particionamentos}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   partitionMPR(serie,dimension,delay,partitions)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{serie} \vspace{0.5cm}& Um vetor numérico onde estará instanciada a série temporal que deve ser avaliada pela função.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{dimension} \vspace{0.5cm}& Dimensão dos padrões ordinais.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{delay} \vspace{0.5cm}& Delay utilizado na formação dos padrões.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{partitions} \vspace{0.5cm}& Quantidade de partições que a série deve ser dividida para a análise.\vspace{0.5cm}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+%-----------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} saxPlot & \textit{Representação gráfica da classificação da série de acordo com o método Symbolic Aggregate Approximation}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+
+\textbf{Uso}
+
+\begin{lstlisting}
+   saxPlot(serie,letters,partitions)
+\end{lstlisting}
+
+\vspace{1.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{serie} \vspace{0.5cm}& Um vetor numérico onde estará instanciada a série temporal que deve ser avaliada pela função.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{letters} \vspace{0.5cm}&  O número de letras.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{partitions} \vspace{0.5cm}& Quantidade de partições que a série deve ser dividida para a análise.\vspace{0.5cm}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+%---------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} PIP & \textit{Pontos encontrados na série fornecida pela técnica Perceptually Important Points}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+  
+\textbf{Uso}
+
+\begin{lstlisting}
+   PIP(serie,numberOfPoints)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{serie} \vspace{0.5cm}& Um vetor numérico onde estará instanciada a série temporal que deve ser avaliada pela função.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{numberOfPoints} \vspace{0.5cm}& Números de pontos que devem ser encontrados pela função.\vspace{0.5cm}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\newpage
+%---------------------------------------------------------------------------------------------------------------
+
+\hrulefill   
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{ X X}
+\hspace{0.5cm} plotPAA & \textit{Exibe o gráfico dos valores adquiridos após o cálculo da Piecewise aggregate approximation}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+
+\vspace{-0.5cm}
+
+\hrulefill  
+
+\vspace{0.5cm}
+  
+\textbf{Uso}
+
+\begin{lstlisting}
+   plotPAA(serie,partitions)
+\end{lstlisting}
+
+\vspace{0.5cm}
+
+\textbf{Argumentos}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabularx}{\textwidth}{X X}
+\hspace{0.5cm} \textit{serie} \vspace{0.5cm}& Um vetor numérico onde estará instanciada a série temporal que deve ser avaliada pela função.\vspace{0.5cm}\\
+\hspace{0.5cm} \textit{partitions} \vspace{0.5cm}& Quantidade de partições que a série deve ser dividida para a análise.\vspace{0.5cm}\\
+\end{tabularx}
+\end{center}
+\end{table} 
+

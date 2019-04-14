@@ -1,0 +1,76 @@
+\mychapter{Introdução}{cap:introducao} \lhead{INTRODUÇÃO}
+
+\section{Motivação}
+
+Séries temporais estão presentes em todo o nosso cotidiano. São definidos como um conjunto de dados obtidos a partir de um processo observacional ao longo de um determinado período de tempo, não necessariamente dividido em espaços iguais, caracterizados pela dependência serial existente entre as observações.
+
+A hipótese subjacente a toda essa análise é que os dados observados são o resultado da operação de um sistema causal sujeito a ruído observacional. Logo, esse sistema, ou dinâmica, é responsável pela criação de padrões que através de observações podemos inferir a respeito da dinâmica. Portanto, o estudo de tais dados auxilia na análise de diversas propriedades de sistemas. 
+
+Como comentado anteriormente, a aplicação deste conhecimento pode ser encontrada em múltiplas áreas do conhecimento científico como, por exemplo, 
+na discriminação entre fenômenos estocásticos e caóticos~\citep{DistinguishingNoiseFromChaos}, 
+na identificação de padrões de comportamento em redes veiculares~\citep{CharacterizationVehicleBehaviorInformationTheory}, 
+na classificação e verificação de assinaturas \textit{online} ~\citep{ClassificationVerificationOnlineHandwrittenSignatures},
+na análise da eficiência informacional do mercado de petróleo~\citep{oilMarket},
+na caracterização das séries temporais produzidas por eletroencefalogramas~\citep{EGGTimeSeries},
+na análise da robustez de redes~\citep{InformationTheoryPerspectiveNetworkRobustness}, e 
+na classificação de padrões de consumo de energia elétrica~\citep{CharacterizationElectricLoadInformationTheoryQuantifiers}.
+
+Tradicionalmente o estudo de séries temporais costuma ser dividido em duas linhas de estudo, nos domínios do tempo e da frequência~\citep{BrockwellDavis91}. No entanto, ambas abordagens utilizam diretamente os dados resultantes do processo observacional, que são sensíveis a efeitos provocados por diversos tipos de contaminação. Logo, surge assim a abordagem do uso de métodos não-paramétricos, como uma forma de evitar que tais efeitos invalidem as análises destes dados.
+
+A Teoria da Informação surgiu como um ramo interdisciplinar, produzindo inúmeros resultados, tanto no ponto de vista teórico quanto nas aplicações e criação de novos métodos de extração de informações em sinais, abrangendo em suas soluções conceitos presentes na Probabilidade, Estatística e Telecomunicações. 
+
+O uso de suas ferramentas tem levado a resultados significativamente melhores do que aqueles obtidos com técnicas clássicas em diversas áreas do conhecimento. No trabalho de~\cite{Torres2014}, podemos ver uma grande contribuição no campo de processamento de imagens, onde este propõe uma técnica de filtragem que se adapta a cada ponto da imagem, observa uma janela de tamanho considerável e só emprega aquelas observações que não são muito discrepantes do valor central. Em~\cite{Bhattacharya2015}, vemos uma aplicação de distâncias estocásticas para obter uma decomposição polarimétrica otimizada. Já~ \cite{Gambini2015} propõe uma técnica de estimação de parâmetros minimizando distâncias estocásticas entre modelos e evidência empírica.
+
+Entretanto, diversos desafios surgem na hora de tratar um problema com estes tipos de técnicas, pois ainda existem vários problemas analíticos e de ordem computacional em aberto, formando assim uma linha de pesquisa avançada, uma vez que requerem por parte dos envolvidos um bom domínio das teorias que dão sustentação às técnicas.
+
+Atualmente há diversas ferramentas que auxiliam na análise clássica de séries temporais; para a plataforma \texttt  R, existem diversas bibliotecas para essa finalidade (ver \url{https://cran.rproject.org/web/views/TimeSeries.html}). Além destas opções, o usuário também pode contar com os softwares de visualização de séries temporais. No entanto, todas alternativas são limitadas as opções de bibliotecas e softwares que trabalham, em sua grande parte, com técnicas paramétricas e exigem familiaridade do usuário com o ambiente utilizado.
+
+Desse modo, exitem dois principais pontos nessas linhas de pesquisa que podem originar ótimos trabalhos inovadores:
+
+\begin{itemize}
+\item a necessidade de tornar as técnicas acessíveis a usuários não especializados, e
+\item a necessidade de otimizar o desenvolvimento de novas técnicas.
+\end{itemize}
+
+O primeiro ponto pode ser solucionado por meio do desenvolvimento de sistemas com interface gráfica que encapsulem os algoritmos presentes na literatura. Já o segundo, consiste em utilizar técnicas de desenvolvimento de software científico.
+
+Logo, é na esfera do domínio dos problemas computacionais que surgem na aplicação de ferramentas oriundas da Teoria de Informação a séries temporais, que este trabalho se insere.
+ 
+Apresentamos, assim, o desenvolvimento de uma ferramenta portável, rápida e de boa qualidade numérica que possibilita análises interativas e exploratórias dos dados de uma série temporal através de técnicas provenientes da Teoria da Informação.
+Com ela, o usuário dispõe de um conjunto de técnicas de análise presentes na literatura para processar e examinar seus dados de modo eficiente e com um mínimo período de aprendizado.
+A ferramenta é extensível.
+
+\section{Objetivo}
+
+O objetivo geral deste trabalho é propor e desenvolver uma ferramenta inovadora, resultante de propostas recentes de pesquisas relacionadas a Teoria da Informação, para facilitar o uso de técnicas avançadas de processamento e análise de sinais.
+
+\section{Solução proposta}
+
+Realizamos o uso de técnicas modernas de análise de séries temporais. 
+Uma série temporal é transformada em uma sequência de símbolos, através da técnica de simbolização de~\cite{article2}. 
+Essa técnica consiste em transformar vetores de tamanho $D$ em padrões ordinais de forma não-paramétrica e formar um histograma de ocorrência dos $D!$ padrões possíveis. 
+Esse histograma é tratado como uma função de probabilidade, do qual são extraídos descritores oriundos da Teoria da Informação. Esses descritores são, depois, mapeados em um plano adequado, e a sua localização serve para identificar o tipo de dinâmica subjacente à série temporal. 
+Há uma grande diversidade de descritores como, por exemplo, distâncias (Kullback-Leibler, Bhattacharya, Hellinger, Rényi, Triangular, Harmônica, dentre outras), e entropias (Jensen-Shannon, Rényi, Tsallis, dentre outras). 
+O ambiente gráfico oferecerá essas opções, e permitirá experimentar com a sua expressividade.
+
+\section{Contribuições}
+
+As contribuições deste trabalho são:
+
+\begin{itemize}
+\item A compreensão e implementação de técnicas de análise não-paramétrica de séries temporais utilizando descritores causais oriundos da Teoria da Informação;
+\item A implementação de uma interface gráfica amigável para a aplicação de tais descritores, mantendo a portabilidade do software para os diversos sistemas operacionais e arquiteturas de hardware.
+\end{itemize}
+
+Note que essas contribuições podem facilitar este processo de análise e construção do conhecimento por parte do usuário, tornando tal experiência mais simples e completa, fornecendo para este novas funcionalidades e uma maior interação do gráfico da série com os seus padrões.
+
+\section{Estrutura do texto}
+
+Este trabalho foi dividido em 5 capítulos e um anexo. 
+No capítulo~\ref{cap:fundamentacao} introduzimos algumas principais técnicas e ferramentas disponíveis na literatura para a análise não-paramétrica de séries temporais utilizando descritores da Teoria da Informação, focando nos conceitos e metodologias aplicados com sucesso em diversos ramos de pesquisa científica.
+No capítulo~\ref{cap:metodologia} apresentamos a metodologia do trabalho desenvolvido.
+No capítulo~\ref{cap:resultados} mostramos os resultados obtidos.
+As funções implementadas ao longo do desenvolvimento do projeto se encontram presente no Anexo A.
+E, finalmente, no Capítulo~\ref{cap:conclusoes} apresentamos as considerações finais, concluindo este trabalho.
+
+\newpage\lhead{\rightmark}

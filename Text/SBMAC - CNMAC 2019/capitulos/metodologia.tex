@@ -1,0 +1,52 @@
+\mychapter{Metodologia}{cap:metodologia}
+
+A metodologia da pesquisa desenvolvida consistiu em dois grandes momentos, a etapa teórica e a implementação das funcionalidades.
+
+Para o desenvolvimento do projeto descrito neste trabalho, foram planejadas as seguintes etapas de execução.
+
+\section{Estudo das funções a serem implementadas}
+
+O estudo das funções a serem implementadas foi realizado a partir da análise de um conjunto de referências bibliográficas de qualidade, visando ampliar os conhecimentos a cerca do tema proposto.
+
+Foram estudados ao longo deste momento, temas como séries temporais, suas propriedades e aplicações, Teoria da Informação, entropias~\citep{salicruetal1993}, distâncias estocásticas~\citep{StatisticalInferenceBasedonDivergenceMeasures}, complexidades estatísticas, plano Complexidade-Entropia e a linguagem de programação \texttt R.
+
+\section{Implementação e validação numérica}
+
+Após o término da revisão bibliográfica da literatura existente, foi dado então início à implementação do trabalho, desenvolvido em \texttt R e sempre fazendo uso de boas práticas de desenvolvimento de software científico.
+
+Para que tal ferramenta seja aplicada na análise de dados é de suma importância realizar a verificação de suas propriedades numéricas. 
+Portanto, a avaliação da qualidade numérica das funcionalidades desenvolvidas foi feita utilizando uma metodologia própria baseada em sistemas dinâmicos com saídas conhecidas.
+
+\section{Análise de alternativas para o desenvolvimento da interface}
+
+Um dos grandes objetivos da pesquisa consistia em ampliar a aplicabilidade das técnicas de extração de informações de séries temporais, por meio de uma ferramenta portável e interativa de análise. Assim, foram avaliadas algumas opções de ferramentas de GUI que fossem capaz de suportar as funcionalidades desenvolvidas em \texttt R na primeira etapa.
+
+Foi então feita uma pesquisa sobre as alternativas existentes sendo considerado os seguintes fatores:
+
+\begin{itemize}
+\item Portabilidade do software para os diversos sistemas operacionais e arquiteturas de hardware; 
+\item Facilidade de instalação, pois como queremos por meio do desenvolvimento do projeto facilitar de um modo geral a análise de séries temporais na experiência do usuário, esta não deverá apresentar problemas no processo de instalação;
+\item Integração com a linguagem de programação \texttt R.
+\end{itemize}
+
+Desse modo, \texttt{RGtk2} e \texttt{Java Swing} foram as alternativas iniciais para o desenvolvimento da interface gráfica. 
+No entanto, após estudos sobre o funcionamento destas GUIs (\textit{Graphical User Interface}), verificamos que a implementação da interface utilizando \texttt{Java Swing} apresentava certos empecilhos em relação a portabilidade do software em diferentes sistemas operacionais, não satisfazendo ao item 1 de nossas exigências, seria necessário a implementação individual do software para cada sistema operacional, já que o programa deveria ser capaz de  reconhecer o sistema utilizado pelo cliente e assim executar seguindo as regras e padrões deste. Outro fator decisivo foram as dificuldades de comunicação entre o código \texttt{Java} e o script em \texttt{R}.
+
+Portanto, optamos pelo \texttt{RGtk2}, por ser uma biblioteca própria do ambiente de desenvolvimento \texttt R e pela sua maior facilidade em manter a portabilidade do sistema.
+
+\section{Desenvolvimento de protótipos}
+ 
+Foram desenvolvidos alguns protótipos de modelos de interface com as alternativas de bibliotecas gráficas citadas anteriormente, sempre com foco na experiência do usuário. 
+
+No entanto, por possuímos como objetivo o desenvolvimento de uma ferramenta \textit{Desktop} algumas alterações foram realizadas para se adequar as funções oferecidas pela biblioteca escolhida.
+
+\section{Versão de produção da interface}
+
+Após a finalização do processo de escolha da biblioteca \texttt{RGtk2}, foi então dado início a implementação da interface.
+Esta etapa consistiu basicamente da realizada da integração entre o ambiente gráfico do sistema e as funções de análise de séries temporais implementadas em fases anteriores.
+
+\section{Validação, verificação e preparação de manuais e tutoriais de uso}
+
+Como já citado, é de fundamental importância para tal projeto a verificação da qualidade numérica do software desenvolvido, portanto um dos seus objetivos consistiu em validar a interface e as funções com usuários finais.
+
+Foram também desenvolvidos manuais de uso das funções implementadas, informando as suas funcionalidades, parâmetros de entrada e o resultado final computado. Todas essas descrições se encontram apresentados no apêndice A deste trabalho.

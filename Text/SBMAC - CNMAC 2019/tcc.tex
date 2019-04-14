@@ -1,0 +1,122 @@
+\documentclass[tcc]{ic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{
+colorlinks = {true},
+linktocpage = {false},
+plainpages = {false},
+linkcolor = {black},
+citecolor = {Blue},
+urlcolor = {Red},
+unicode = {true},
+pdftitle = {TCC DUDA},
+pdfauthor = {Eduarda Tatiane Caetano Chagas},
+pdfsubject = {Relatório Final de Projeto de Iniciação Científica},
+pdfkeywords={Teoria da Informação, Séries Temporais, linguagem de programação R},
+pdfcreator = {LaTeX2e},
+pdffitwindow = {false},
+pdfstartview = {FitH},
+pdftoolbar = {true},
+pdfpagemode = {UseOutlines},
+pdfview = {XYZ null null null}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\titulo{Teoria da Informação e Estatística Computacional no Processamento e Análise de Sinais -- Uma ferramenta para Análise de Séries Temporais}
+
+\autor{Eduarda Tatiane Caetano Chagas}{eduardachagas48@laccan.ufal.br}{}
+
+\orientador{Prof.\ Dr.\ Alejandro Cesar Frery Orgambide}{}{Instituto de Computação}{Universidade Federal de Alagoas}
+
+\examinador{}
+
+\examinadorDois{}
+
+\dataMesAno{Outubro}{2018}
+
+\begin{document}
+
+\selectlanguage{portuguese}
+
+\capa
+
+\begin{resumo}
+
+A análise de séries temporais é classicamente feita ou no domínio do tempo ou em algum domínio transformado (Fourier, Wavelet etc.).
+Mais recentemente, apareceram técnicas não-paramétricas e, dentre elas, a análise de descritores causais.
+Essas técnicas tem como grande vantagem a relativa pouca sensibilidade a perturbações dos dados, e a capacidade de revelar propriedades importantes da dinâmica subjacente ao processo.
+A análise dos descritores causais de uma série temporal possui uma ampla aplicabilidade em nossa rotina, por exemplo na análise de ações bancárias, no registro do comportamento da maré, nos índices da taxa de desemprego, nas temperaturas máximas e mínimas diárias de uma cidade, dentre outras incontáveis finalidades. 
+Desse modo, relatamos aqui o processo de desenvolvimento de uma plataforma de análise dos descritores causais de uma série temporal oriundos da Teoria da Informação.
+A plataforma visa facilitar a análise dessas séries nos mais variados ramos da ciência. 
+O sistema foi implementado na linguagem de programação \texttt R que, além de fornecer ferramentas gráficas, também possui uma grande precisão numérica, ambas características de extrema importância ao longo deste trabalho.
+
+\vspace{2em}
+\textbf{Palavras-chave}: Séries Temporais; Teoria da Informação; Linguagem \texttt R.
+
+\end{resumo}
+
+\selectlanguage{english}
+\begin{abstract}
+
+Time series analysis is classically performed either in the time domain or in a transformed domain (Fourier, Wavelet, etc.)
+More recently, nonparametric techniques have been proposed and, among them, the use of time causal descriptors.
+This class of techniques has the ability to reveal important properties of the underlying process and, at the same time, to be relatively insensitive to data contamination.
+The analysis of causal descriptors of a time series has a wide applicability, as in the analysis stock market, records of the behavior of the tides, index of the unemployment rates, maximum and minimum daily temperatures of a city, among others.
+We report here the process of developing a platform for analyzing causal descriptors of a time series using Information Theory.
+The platform aims to facilitate the analysis of such series in as many branches of science as possible.
+The system was implemented in the \texttt R programming language, which besides providing graphical tools, also has a great numerical precision, both features of extreme importance throughout this work.
+
+\vspace{2em}
+\textbf{Keywords}: Time Series; Information Theory; Language \texttt R;
+
+\end{abstract}
+
+\selectlanguage{portuguese}
+
+\tableofcontents
+
+\listoffigures
+\addcontentsline{toc}{table}{Lista de Figuras}
+
+\listoftables
+\addcontentsline{toc}{table}{Lista de Tabelas}
+
+\inicio
+
+\include{capitulos/introducao}
+\include{capitulos/fundamentacao}
+\include{capitulos/metodologia}
+\include{capitulos/resultados}
+\include{capitulos/conclusoes}
+
+\selectlanguage{portuguese}
+\appendix
+\include{apendices/apendiceA}
+
+% 
+\begin{raggedright}
+\bibliographystyle{plainnat}
+\renewcommand{\bibsection}{
+\chapter*{\begin{flushright}Referências bibliográficas\end{flushright}}
+\addcontentsline{toc}{chapter}{Referências bibliográficas}
+}
+\lhead{REFERÊNCIAS BIBLIOGRÁFICAS}
+\bibliography{../ref}
+\newpage\lhead{\rightmark}
+\end{raggedright}
+
+
+% \chapter*{}
+% \vfill
+% \singlespacing
+% \thispagestyle{empty}
+% \begin{center}
+% Este trabalho foi redigido em {\large\LaTeX}\ utilizando uma modifição do estilo \textsf{IC-UFAL}.
+% As referências bibliográficas foram preparadas no \textsf{JabRef} e administradas pelo {\large\BibTeX}\ com o estilo \textsf{plainnat}.
+% O texto utiliza fonte \NomeFonte em corpo de 12 pontos.
+% A numeração dos capítulos segue com a familia tipográfica \NomeFonteCap.\\ 
+% \vspace{.5cm}
+% %\includegraphics[width=.5\textwidth]{Eye_of_Horus_bw}
+% \end{center}
+
+\end{document}
