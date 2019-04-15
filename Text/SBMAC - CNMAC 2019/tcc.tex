@@ -1,5 +1,17 @@
 \documentclass[tcc]{ic}
 
+
+\usepackage{collectbox}
+
+\makeatletter
+\newcommand{\mybox}{%
+    \collectbox{%
+        \setlength{\fboxsep}{2pt}%
+        \fbox{\BOXCONTENT}%
+    }%
+}
+\makeatother
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hypersetup{
 colorlinks = {true},
@@ -87,6 +99,7 @@ The system was implemented in the \texttt R programming language, which besides 
 \include{capitulos/fundamentacao}
 \include{capitulos/metodologia}
 \include{capitulos/resultados}
+\include{capitulos/demonstracao}
 \include{capitulos/conclusoes}
 
 \selectlanguage{portuguese}
@@ -101,7 +114,7 @@ The system was implemented in the \texttt R programming language, which besides 
 \addcontentsline{toc}{chapter}{Referências bibliográficas}
 }
 \lhead{REFERÊNCIAS BIBLIOGRÁFICAS}
-\bibliography{../ref}
+\bibliography{../ref.bib}
 \newpage\lhead{\rightmark}
 \end{raggedright}
 
