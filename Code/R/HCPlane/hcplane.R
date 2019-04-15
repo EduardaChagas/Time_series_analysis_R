@@ -91,7 +91,7 @@ HCPlane <- function(p, Entropy.Complexity, dimension){
 
 #Função para a geração dos histogramas
 histogram<-function(serie,dimension,delay,title){
-  print(serie)
+#  print(serie)
   fat=factorial(dimension)
   p_patterns <- formationPattern(serie,dimension,delay,0)
   n_symbols <- dim(p_patterns)[1]
@@ -106,7 +106,7 @@ histogram<-function(serie,dimension,delay,title){
     }
   }
   index_rep=index_rep[1:n_symbols]
-  print(p_patterns)
+#  print(p_patterns)
   index_rep = data.frame(i = index_rep)
   p <- ggplot(index_rep) +
     geom_histogram(aes(x = index_rep$i, y = ..density..),
@@ -167,17 +167,39 @@ type[ii] <- 4
 series <- data.frame(series_fk,series_map,series_monotonic,series_periodic)
 
 #Plotando os histogramas das séries 
-#h0 <- histogram(series_fk[,1],dimension,delay,"White Noise")
-#h05 <- histogram(series_fk[,2],dimension,delay,expression(f^{-1/2}))
-#h1 <- histogram(series_fk[,3],dimension,delay,expression(f^{-1}))
-#h15 <- histogram(series_fk[,4],dimension,delay,expression(f^{-3/2}))
-#h2 <- histogram(series_fk[,5],dimension,delay,expression(f^{-2}))
-#h25 <- histogram(series_fk[,6],dimension,delay,expression(f^{-5/2}))
-#h3 <- histogram(series_fk[,7],dimension,delay,expression(f^{-3}))
-#hlogistic36 <- histogram(series_map[,1],dimension,delay,"Logistic Map r = 3.6")
-#hlogistic4 <- histogram(series_map[,2],dimension,delay,"Logistic Map r = 4")
-#hlog <- histogram(series_monotonic,dimension,delay,expression(paste("log(", x + .1, ")")))
-#hsincos <- histogram(series_periodic,dimension,delay,expression(paste("sin(", 2 * x, ")", "cos(", 2 * x, ")")))
+h0 <- histogram(series_fk[,1],dimension,delay,"White Noise")
+ggsave(file="/Users/acfrery/Documents/Alunos/Marcelo Queiroz/Article/Figures/h0.pdf")
+
+h05 <- histogram(series_fk[,2],dimension,delay,expression(f^{-1/2}))
+ggsave(file="/Users/acfrery/Documents/Alunos/Marcelo Queiroz/Article/Figures/h05.pdf")
+
+h1 <- histogram(series_fk[,3],dimension,delay,expression(f^{-1}))
+ggsave(file="/Users/acfrery/Documents/Alunos/Marcelo Queiroz/Article/Figures/h1.pdf")
+
+h15 <- histogram(series_fk[,4],dimension,delay,expression(f^{-3/2}))
+ggsave(file="/Users/acfrery/Documents/Alunos/Marcelo Queiroz/Article/Figures/h15.pdf")
+
+h2 <- histogram(series_fk[,5],dimension,delay,expression(f^{-2}))
+ggsave(file="/Users/acfrery/Documents/Alunos/Marcelo Queiroz/Article/Figures/h2.pdf")
+
+h25 <- histogram(series_fk[,6],dimension,delay,expression(f^{-5/2}))
+ggsave(file="/Users/acfrery/Documents/Alunos/Marcelo Queiroz/Article/Figures/h25.pdf")
+
+h3 <- histogram(series_fk[,7],dimension,delay,expression(f^{-3}))
+ggsave(file="/Users/acfrery/Documents/Alunos/Marcelo Queiroz/Article/Figures/h3.pdf")
+
+hlogistic36 <- histogram(series_map[,1],dimension,delay,"Logistic Map r = 3.6")
+ggsave(file="/Users/acfrery/Documents/Alunos/Marcelo Queiroz/Article/Figures/h36.pdf")
+
+hlogistic4 <- histogram(series_map[,2],dimension,delay,"Logistic Map r = 4")
+ggsave(file="/Users/acfrery/Documents/Alunos/Marcelo Queiroz/Article/Figures/h4.pdf")
+
+hlog <- histogram(series_monotonic,dimension,delay,expression(paste("log(", x + .1, ")")))
+ggsave(file="/Users/acfrery/Documents/Alunos/Marcelo Queiroz/Article/Figures/hlog.pdf")
+
+hsincos <- histogram(series_periodic,dimension,delay,expression(paste("sin(", 2 * x, ")", "cos(", 2 * x, ")")))
+ggsave(file="/Users/acfrery/Documents/Alunos/Marcelo Queiroz/Article/Figures/hsincos.pdf")
+
 
 #Plotando todos os gráficos gerados em um grid
 #grid.newpage()
