@@ -1,6 +1,6 @@
-require(gtools)
-require(DataDriven)
-require(combinat)
+if(!require("DataDriven")) install.packages("DataDriven_0.0.0.9000.tar.gz", repos = NULL, type="source")
+if(!require("gtools")) install.packages("gtools")
+if(!require("combinat")) install.packages("combinat")
 
 randomImputation <- function(series, dimension, delay, patterns, elements, symbols){
   

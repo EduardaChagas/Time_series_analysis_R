@@ -1,12 +1,13 @@
 library(ggplot2)
 
-paa <- function(serie,size){
-  res = rep(0,size)
-  for(i in 0:(length(serie)*size-1)){
-    res[i%/%length(serie)+1] = res[i%/%length(serie)+1] + serie[i%/%size+1]
+paa <- function(series, M){
+  res = rep(0, M)
+  N = length(series)
+  for(i in 0:(N*(M - 1))){
+    res[i%/%N + 1] = res[i%/%N + 1] + series[i%/%M + 1]
   }
-  for(i in 1:size){
-    res[i]=res[i]/length(serie)
+  for(i in 1:M){
+    res[i] = res[i]/N
   }
   res
 }

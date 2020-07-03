@@ -54,7 +54,7 @@ patternsOnGraph<-function(serie,dimension,delay,number_of_pattern,points = 0){
 }
 
 
-histogram<-function(serie,dimension,delay){
+histogram<-function(serie, dimension, delay){
   fat=factorial(dimension)
   p_patterns <- formationPattern(serie,dimension,delay,0)
   n_symbols <- dim(p_patterns)[1]
@@ -71,13 +71,11 @@ histogram<-function(serie,dimension,delay){
   index_rep=index_rep[1:n_symbols]
   index_rep = data.frame(i = index_rep)
   p <- ggplot(index_rep) +
-    geom_histogram(aes(x = index_rep$i, y = ..density..),
-                   binwidth = 1, fill = "grey", color = "black")+ 
-    #labs(title="Histogram of the patterns", x="Patterns", y="Probability")
-    labs(title="Histograma de Padrões", x="Padrões", y="Probabilidade")
+      geom_histogram(aes(x = index_rep$i, y = ..density..),
+                     binwidth = 1, fill = "grey", color = "black")+ 
+      #labs(title="Histogram of the patterns", x="Patterns", y="Probability")
+      labs(title="Histograma de Padrões", x="Padrões", y="Probabilidade")
   print(p)
-  
-  dev.off()
   symbol = toString(symbol)
   return(symbol)
 }

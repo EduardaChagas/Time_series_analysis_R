@@ -1,22 +1,24 @@
-require(gtools)
-library(DataDriven)
+if(!require("DataDriven")) install.packages("DataDriven_0.0.0.9000.tar.gz", repos = NULL, type="source")
+if(!require("gtools")) install.packages("gtools")
 
-completeCaseFunction <- function(series, dimension, delay, patterns, elements, symbols){
-  fat <- factorial(dimension)
-  probability <- rep(0,fat)
-  myPatterns <- sum <- a <-0
+
+complete.case <- function(series, dimension, delay){
+  fat = factorial(dimension)
+  probability = rep(0,fat)
+  myPatterns = sum = 0
   
-  for(i in c(1:dim(patterns)[1])){
-    aux <- duplicated(elements[i,order(elements[i,])])
-    isDuplicated <- length(aux[aux==TRUE])
+  symbols = definePatterns(dimension)
+  patterns = formationPattern(series, dimension, delay, 0)
+  elements = formationPattern(series, dimension, delay, 1)
+  
+  for(i in 1:dim(patterns)[1]){
+    aux = duplicated(elements[i,order(elements[i,])])
+    isDuplicated = length(aux[aux==TRUE])
     if(isDuplicated == 0){ 
       sum = sum + 1
-      #init = patterns[i,1]*(dim(symbols)[1]/dimension) + 1
-      #end = init + (dim(symbols)[1]/dimension) - 1
       for(j in 1:fat){
         if(all(patterns[i,] == symbols[j,])){
-          a = a + 1
-          probability[j] <- probability[j] + 1
+          probability[j] = probability[j] + 1
           break
         }
       }

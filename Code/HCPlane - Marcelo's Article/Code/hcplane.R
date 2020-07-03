@@ -8,6 +8,7 @@ require(gridExtra)
 require(fftw)
 source('Aux.R')
 source('plot.R')
+setwd("/home/eduarda/Desktop/Research/Repositories/Repo/Time_series_analysis_R/Code/HCPlane - Marcelo's Article/Code")
 
 # Paleta montada a partir de https://coolors.co/
 rainbow_colors <- palette(c("#494947", #DarkGreen
@@ -73,9 +74,11 @@ cotas <- function(dimension){
   c2y = readingMPR(dimension,4)
   
   p = qplot(xlab=expression(H), ylab=expression(C)) +
-    theme(plot.title = element_text(hjust=0.5)) +
-    geom_line(aes(x=c2x, y=c2y), size=2, color="gray") +
-    geom_line(aes(x=c1x, c1y), size=2, color="gray")
+    geom_line(aes(x=c2x, y=c2y), size=1.5, color="gray") +
+    geom_line(aes(x=c1x, c1y), size=1.5, color="gray") + 
+    theme_few(base_size = 18, base_family = "serif")  + 
+    theme(plot.title = element_text(hjust=0.5)) + 
+    scale_colour_few("Dark")
   print(p)
   return(p)
 }
@@ -96,7 +99,7 @@ HCPlane <- function(p, Entropy.Complexity, dimension, want_dotted){
   p = p +
     geom_point(aes(x = Entropy.Complexity$Entropy, y = Entropy.Complexity$Complexity), 
                shape = Entropy.Complexity$Shape, color = Entropy.Complexity$rainbow_colors, 
-               size = 5)
+               size = 4)
   print(p)
   return(p)
 }
@@ -131,7 +134,7 @@ histogram<-function(serie,dimension,delay,title){
 
 #Variáveis globais
 n <- 10^4
-dimension <- 6
+dimension <- 4
 delay <- 1
 type <- rep(0,9) #Identificará que tipo de série estamos tratando (f^-k, mapa logistico...)
 

@@ -1,4 +1,4 @@
-library(gtools)
+require(gtools)
 
 definePatterns<-function(dimension){
   d = c(1:dimension)

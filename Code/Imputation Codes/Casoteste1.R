@@ -91,12 +91,10 @@ Entropy.complexity.values <- function(Series.to.analysis, dimension, delay){
     Entropy4[i] <- shannonNormalized(prob4[i,])
     Complexity4[i] <- Ccomplexity(prob4[i,])
     
+    Entropy.Complexity <- data.frame(Entropy1, Complexity1,Entropy2, Complexity2,Entropy3, Complexity3,Entropy4, Complexity4)
+    write.table(Entropy.Complexity, file = paste("EntropyComplexity_Random_Imputation",i,".csv", sep=""), sep = ",")
     cat("\n Interação: ",i, "\n")
   }
-  #Entropy.Complexity <- data.frame(Entropy1, Complexity1,Entropy2, Complexity2,Entropy3, Complexity3,Entropy4, Complexity4)
-  Entropy.Complexity <- data.frame(Entropy4, Complexity4)
-  #write.table(Entropy.Complexity, file = "EntropyComplexity_Random_Imputation.csv", sep = ",", row.names = FALSE, col.names = FALSE, append = TRUE)
-  Entropy.Complexity
 }
 
 #Parâmetros definidos
@@ -107,7 +105,7 @@ n_series = 10^3
 init = 10^3
 p = 0.3
 i = j = 1
-dimension = 6
+dimension = 3
 delay = 1
 
 #Gerando a série

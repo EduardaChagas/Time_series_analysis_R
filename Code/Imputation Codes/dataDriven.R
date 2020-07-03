@@ -1,5 +1,5 @@
-library(combinat)
-library(gtools)
+if(!require("combinat")) install.packages("combinat")
+if(!require("gtools")) install.packages("gtools")
 
 #Calcula todos os possíveis vetores permutados, dado o ínicio e o final da subconjunto que deve ser permutado
 mypermute<-function(vector, init, end){
